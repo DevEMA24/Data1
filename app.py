@@ -10,12 +10,11 @@ st.set_page_config(page_title="Sales Viewer", layout="wide")
 # Title of the application
 st.title("Sales Viewer: CGR Shift Sales vs. Goal")
 
-# Function to load data
+# Function to load data from the specific sheet "Sales Viewer (Manager)"
 def load_data(uploaded_file):
     if uploaded_file.name.endswith('.xlsx'):
-        excel_data = pd.ExcelFile(uploaded_file)
-        # Assuming the relevant sheet is named 'Sales Per Interval(All Models)'
-        df = excel_data.parse('Sales Per Interval(All Models)')
+        # Load the specific sheet
+        df = pd.read_excel(uploaded_file, sheet_name='Sales Viewer (Manager)')
     elif uploaded_file.name.endswith('.csv'):
         df = pd.read_csv(uploaded_file)
     else:
