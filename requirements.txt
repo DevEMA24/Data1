@@ -1,0 +1,4 @@
+streamlit
+pandas
+matplotlib
+openpyxl  # for handling Excel files in .xlsx format
